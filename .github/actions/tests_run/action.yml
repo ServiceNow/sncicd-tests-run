@@ -1,0 +1,26 @@
+name: 'ServiceNow CI/CD Start Test Suite'
+description: 'Start a specified automated test suite.'
+inputs:
+  browserName:
+    description: "Name of the browser to use to run the client test. "
+    required: false
+  browserVersion:
+    description: "Starting value of the version of the browser specified in browser_name to use to run the test.
+                  For example, if you enter '9', that would enable all 9.x.x.x versions"
+    required: false
+  osName:
+    description: "Name of the operating system under which to run the test suite."
+    required: false
+  osVersion:
+    description: "Starting value of the version of the operating system under which to run the test suite.
+                  For example, if you enter '8', that would enable all 8.x.x.x versions."
+    required: false
+  testSuiteSysId:
+    description: "Required if testSuiteName is not specified"
+    required: false
+  testSuiteName:
+    description: "Required if testSuiteSysId is not specified"
+    required: false
+runs:
+  using: 'node12'
+  main: 'index.js'
