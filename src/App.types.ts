@@ -60,7 +60,7 @@ export interface RequestResult extends TestsResult {
         results: {
             id: string,
             url: string,
-        }
+        },
     };
     status: string;
     status_label: string;
@@ -80,6 +80,7 @@ export enum ResponseStatus {
 
 export interface axiosConfig {
     headers: {
+        'User-Agent': string,
         Accept: string,
     };
     auth: User;
