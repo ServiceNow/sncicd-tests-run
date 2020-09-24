@@ -35,8 +35,8 @@ export default class App {
         status_detail: 'Additional information about the current state',
         status_message: 'Description of the current state',
         test_suite_duration: 'Amount of time that it took to execute the test suite',
-        test_suite_name: 'Name of the test suite'
-    };
+        test_suite_name: 'Name of the test suite',
+    }
 
     constructor(props: AppProps) {
         this.props = props
@@ -45,7 +45,10 @@ export default class App {
             password: props.password,
         }
         this.config = {
-            headers: {Accept: 'application/json'},
+            headers: {
+                'User-Agent': 'sncicd_extint_github',
+                Accept: 'application/json',
+            },
             auth: this.user,
         }
     }
@@ -86,7 +89,6 @@ export default class App {
             const url: string = this.buildRequestUrl(inputs)
             const response: RequestResponse = await axios.post(url, {}, this.config)
             await this.printStatus(response.data.result)
-
         } catch (error) {
             let message: string
             if (error.response && error.response.status) {
@@ -128,10 +130,10 @@ export default class App {
      * @returns         void
      */
     async printStatus(result: RequestResult): Promise<void> {
-        if (+result.status === ResponseStatus.Pending) console.log(result.status_label)
+        if (+result.status === ResponseStatus.Pending) core.info(result.status_label)
 
         if (+result.status === ResponseStatus.Running || +result.status === ResponseStatus.Successful)
-            console.log(`${result.status_label}: ${result.percent_complete}%`)
+            core.info(`${result.status_label}: ${result.percent_complete}%`)
 
         // Recursion to check the status of the request
         if (+result.status < ResponseStatus.Successful) {
@@ -143,8 +145,8 @@ export default class App {
         } else {
             // Log the success result, the step of the pipeline is success as well
             if (+result.status === ResponseStatus.Successful) {
-                this.makeGreenString(result.status_detail)
-                this.makeGreenString(result.status_message)
+                core.info(this.makeGreenString(result.status_detail))
+                core.info(this.makeGreenString(result.status_message))
             }
 
             if (result.links.results) {
@@ -166,20 +168,23 @@ export default class App {
     }
 
     async getTestResults(url: string): Promise<void> {
-        const {data: {result}}: RequestResponse = await axios.get(url, this.config)
+        const {
+            data: { result },
+        }: RequestResponse = await axios.get(url, this.config)
         if (+result.status === ResponseStatus.Successful) {
-            console.log(this.makeGreenString("success"));
-            console.log('Link to results is: ' + result.links.results.url);
-            console.log(Object.keys(this.messages)
-                // @ts-ignore
-                .filter(name => result[name])
-                // @ts-ignore
-                .map(name => `${this.messages[name]}: ${result[name]}`)
-                .join('\n')
-            );
+            core.info(this.makeGreenString('success'))
+            core.info('Link to results is: ' + result.links.results.url)
+            core.info(
+                Object.keys(this.messages)
+                    // @ts-ignore
+                    .filter(name => result[name])
+                    // @ts-ignore
+                    .map(name => `${this.messages[name]}: ${result[name]}`)
+                    .join('\n'),
+            )
         } else {
-            console.log(this.makeRedString(Errors.TESTS_FAILED));
-            throw new Error(Errors.TEST_SUITE_FAILED);
+            core.info(this.makeRedString(Errors.TESTS_FAILED))
+            throw new Error(Errors.TEST_SUITE_FAILED)
         }
     }
 

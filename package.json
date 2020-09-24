@@ -5,7 +5,8 @@
   "main": "./.github/actions/tests_run/index.ts",
   "scripts": {
     "build": "tsc",
-    "test": "tsc --noEmit && jest",
+    "test": "tsc --noEmit && jest unit --runInBand",
+    "integration": "tsc --noEmit && jest integration --runInBand",
     "lint": "eslint . --ext .ts",
     "format": "prettier --config prettier.json --write ./**/*.ts"
   },
