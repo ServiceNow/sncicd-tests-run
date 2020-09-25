@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vvoloshchuk/tests_run.git"
+    "url": "git+https://github.com/ServiceNow/sncicd_tests_run.git"
   },
   "author": "SoftServe inc.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vvoloshchuk/tests_run/issues"
+    "url": "https://github.com/ServiceNow/sncicd_tests_run/issues"
   },
-  "homepage": "https://github.com/vvoloshchuk/tests_run#readme",
+  "homepage": "https://github.com/ServiceNow/sncicd_tests_run#readme",
   "devDependencies": {
     "@types/jest": "^26.0.12",
     "@types/node": "^14.6.2",
