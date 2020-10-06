@@ -1,4 +1,4 @@
-# ServiceNow Run Tests
+# ServiceNow CI/CD GitHub Action for Run Tests
 
 Start a specified automated test suite.
 
