@@ -3,17 +3,24 @@
 Start a specified automated test suite.
 
 # Usage
-## Step 1: Collect the data from ServiceNow
-Collect all required data from the ServiceNow - username, password, instance
+## Step 1: Prepare values for setting up your variables for Actions
+- credentials (username and password for a service account)
+- instance URLs for your dev, test, prod, etc. environments
+- sys_id or scope for your app
+- sys_id for your ATF Test Suite
+
 ## Step 2: Configure Secrets in your GitHub repository
 On GitHub, go in your repository settings, click on the secret _Secrets_ and create a new secret.
 
 Create secrets called 
 - `SNOW_USERNAME`
 - `SNOW_PASSWORD`
-- `SNOW_INSTALL_INSTANCE` **domain** only required from the url like https://**domain**.service-now.com
+- `SNOW_INSTALL_INSTANCE` only the **domain** string is required from the instance URL, for example https://**domain**.service-now.com
 
-## Step 3: Configure the GitHub action
+## Step 3: Example Workflow Template
+https://github.com/ServiceNow/sncicd_githubworkflow
+
+## Step 4: Configure the GitHub Action if need to adapt for your needs or workflows
 ```yaml
 - name: Run Tests 
   uses: ServiceNow/sncicd-tests-run@1.0 # like username/repo-name
