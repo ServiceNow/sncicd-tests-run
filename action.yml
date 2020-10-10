@@ -1,4 +1,4 @@
-name: 'ServiceNow CI/CD Start Test Suite'
+name: 'ServiceNow CI/CD Run ATF Test Suite'
 description: 'Start a specified automated test suite.'
 inputs:
   browserName:
