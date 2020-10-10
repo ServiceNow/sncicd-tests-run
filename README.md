@@ -16,7 +16,7 @@ Create secrets called
 ## Step 3: Configure the GitHub action
 ```yaml
 - name: Run Tests 
-  uses: ServiceNow/sncicd_tests_run@1.0 # like username/repo-name
+  uses: ServiceNow/sncicd-tests-run@1.0 # like username/repo-name
   with:
     browserName:
     browserVersion:
