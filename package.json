@@ -1,5 +1,5 @@
 {
-  "name": "tests_run",
+  "name": "sncicd-tests-run",
   "version": "1.0.0",
   "description": "Start a specified automated test suite.",
   "main": "index.ts",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ServiceNow/sncicd_tests_run.git"
+    "url": "git+https://github.com/ServiceNow/sncicd-tests-run.git"
   },
   "author": "SoftServe inc.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ServiceNow/sncicd_tests_run/issues"
+    "url": "https://github.com/ServiceNow/sncicd-tests-run/issues"
   },
-  "homepage": "https://github.com/ServiceNow/sncicd_tests_run#readme",
+  "homepage": "https://github.com/ServiceNow/sncicd-tests-run#readme",
   "devDependencies": {
     "@types/jest": "^26.0.12",
     "@types/node": "^14.6.2",
