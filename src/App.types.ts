@@ -4,7 +4,7 @@ export interface User {
 }
 
 export interface AppProps extends User {
-    snowInstallInstance: string;
+    nowInstallInstance: string;
 }
 
 export interface ErrorResult {
@@ -16,9 +16,9 @@ export interface ErrorResult {
 }
 
 export enum Errors {
-    USERNAME = 'snowUsername is not set',
-    PASSWORD = 'snowPassword is not set',
-    INSTALL_INSTANCE = 'snowInstallInstance is not set',
+    USERNAME = 'nowUsername is not set',
+    PASSWORD = 'nowPassword is not set',
+    INSTALL_INSTANCE = 'nowInstallInstance is not set',
     SUITE_SYS_ID_OR_NAME = 'Set testSuiteSysId or testSuiteName please',
     INCORRECT_CONFIG = 'Configuration is incorrect',
     CANCELLED = 'Canceled',

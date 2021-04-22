@@ -8,24 +8,24 @@ export const configMsg = '. Configure Github secrets please'
 export const run = (): void => {
     try {
         const errors: string[] = []
-        const { snowUsername = '', snowPassword = '', snowInstallInstance = '' } = process.env
+        const { nowUsername = '', nowPassword = '', nowInstallInstance = '' } = process.env
 
-        if (!snowUsername) {
+        if (!nowUsername) {
             errors.push(Errors.USERNAME)
         }
-        if (!snowPassword) {
+        if (!nowPassword) {
             errors.push(Errors.PASSWORD)
         }
-        if (!snowInstallInstance) {
+        if (!nowInstallInstance) {
             errors.push(Errors.INSTALL_INSTANCE)
         }
         if (errors.length) {
             core.setFailed(`${errors.join('. ')}${configMsg}`)
         } else {
             const props: AppProps = {
-                snowInstallInstance,
-                username: snowUsername,
-                password: snowPassword,
+                nowInstallInstance,
+                username: nowUsername,
+                password: nowPassword,
             }
             const app = new App(props)
 

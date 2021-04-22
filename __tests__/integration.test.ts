@@ -8,7 +8,7 @@ describe('Install app', () => {
         appSysID: '',
         password: 'test',
         scope: '',
-        snowInstallInstance: 'test',
+        nowInstallInstance: 'test',
         username: 'test',
     }
     beforeEach(() => {
@@ -27,10 +27,10 @@ describe('Install app', () => {
         expect(core.setFailed).toHaveBeenCalledWith(`${errors}${configMsg}`)
     })
 
-    it('without snowInstallInstance', () => {
+    it('without nowInstallInstance', () => {
         // simulate the secrets are not set
         process.env = {
-            snowInstallInstance: 'test',
+            nowInstallInstance: 'test',
         }
         const errors = [Errors.USERNAME, Errors.PASSWORD].join('. ')
 
