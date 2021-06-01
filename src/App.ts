@@ -70,15 +70,15 @@ export default class App {
      * @returns string  Url to API
      */
     buildRequestUrl(options: RequestOptions): string {
-        if (!this.props.snowInstallInstance) throw new Error(Errors.INCORRECT_CONFIG)
+        if (!this.props.nowInstallInstance) throw new Error(Errors.INCORRECT_CONFIG)
 
         const params: string = this.buildParams(options)
-        return `https://${this.props.snowInstallInstance}.service-now.com/api/sn_cicd/testsuite/run?${params}`
+        return `https://${this.props.nowInstallInstance}.service-now.com/api/sn_cicd/testsuite/run?${params}`
     }
 
     /**
      * Get plugin id
-     * Makes the request to SNow api plugin/{plugin_id}/rollback
+     * Makes the request to ServiceNow api plugin/{plugin_id}/rollback
      * Prints the progress
      * @returns         Promise void
      */

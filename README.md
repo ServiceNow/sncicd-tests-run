@@ -13,9 +13,9 @@ Start a specified automated test suite.
 On GitHub, go in your repository settings, click on the secret _Secrets_ and create a new secret.
 
 Create secrets called 
-- `SNOW_USERNAME`
-- `SNOW_PASSWORD`
-- `SNOW_INSTALL_INSTANCE` only the **domain** string is required from the instance URL, for example https://**domain**.service-now.com
+- `NOW_USERNAME`
+- `NOW_PASSWORD`
+- `NOW_INSTALL_INSTANCE` only the **domain** string is required from the instance URL, for example https://**domain**.service-now.com
 
 ## Step 3: Example Workflow Template
 https://github.com/ServiceNow/sncicd_githubworkflow
@@ -32,9 +32,9 @@ https://github.com/ServiceNow/sncicd_githubworkflow
     testSuiteSysId:
     testSuiteName:
   env:
-    snowUsername: ${{ secrets.SNOW_USERNAME }}
-    snowPassword: ${{ secrets.SNOW_PASSWORD }}
-    snowInstallInstance: ${{ secrets.SNOW_INSTALL_INSTANCE }}
+    nowUsername: ${{ secrets.NOW_USERNAME }}
+    nowPassword: ${{ secrets.NOW_PASSWORD }}
+    nowInstallInstance: ${{ secrets.NOW_INSTALL_INSTANCE }}
 ```
 Inputs:
 - **browserName** - Name of the browser to use to run the client test. 
@@ -45,9 +45,9 @@ Inputs:
 - **testSuiteName** - Required if testSuiteSysId is not specified. The name of the test suite to run. This value is located in the Test [sys_atf_test_suite] table.
 
 Environment variable should be set up in the Step 1
-- snowUsername - Username to ServiceNow instance
-- snowPassword - Password to ServiceNow instance
-- snowInstallInstance - ServiceNow instance on which the tests are run
+- nowUsername - Username to ServiceNow instance
+- nowPassword - Password to ServiceNow instance
+- nowInstallInstance - ServiceNow instance on which the tests are run
 
 # Contributing
 
